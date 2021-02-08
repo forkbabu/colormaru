@@ -1,3 +1,5 @@
+import sys
+sys.path.append('/content/DeOldify/')
 from deoldify import device
 from deoldify.device_id import DeviceId
 #choices:  CPU, GPU0...GPU7
@@ -19,10 +21,9 @@ colorizer = get_video_colorizer()
 import fire
 
 def color(vid="/content/cut1.mp4",render_factor=27):
-  video_path = colorizer.colorize_from_file_name(vid, render_factor, watermarked=False)
+  videopath = colorizer.colorize_from_file_name(vid, render_factor, watermarked=False)
   return videopath
 
 if __name__ == '__main__':
   vpath = fire.Fire(color)
   print(vpath)
-
